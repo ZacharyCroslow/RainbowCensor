@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-
+    /* Redundant code
     Color Belief = new Color(255, 2, 39, 1);
     Color Education = new Color(0, 0, 0, 1);
     Color Information = new Color(0, 0, 0, 1);
@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     Color Media = new Color(0, 0, 0, 1);
     Color Arts = new Color(0, 0, 0, 1);
     Color Military = new Color(0, 0, 0, 1);
+    */
 
     //want to add list of true bools below allowing average of their respective colour values given as the colour for the final stream
 
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour {
     bool med = true;
     bool art = true;
     bool mil = true;
+    bool cen = true;
 
     //Toggles
 
@@ -45,6 +47,9 @@ public class GameManager : MonoBehaviour {
         //Military
         public GameObject MilitaryStream;
 
+        //Censorship
+        public GameObject CensorStream;
+
 
     // Use this for initialization
     void Start () {
@@ -65,6 +70,7 @@ public class GameManager : MonoBehaviour {
         togglemedia();
         toggleart();
         togglemil();
+        togglecen();
     }
     //gaining the colour 
     public void FinalColour (Color Censor)
@@ -137,6 +143,15 @@ public class GameManager : MonoBehaviour {
         else mil = false;
     }
 
+    public void togglecen()
+    {
+        if (CensorStream == true)
+        {
+            cen = true;
+        }
+        else cen = false;
+    }
+
     // Toggle turns streams visually on and off
     public void BeliefToggle(bool newvalue)
     {        
@@ -180,4 +195,8 @@ public class GameManager : MonoBehaviour {
         MilitaryStream.SetActive(newvalue);
     }
 
+    public void CensorshipToggle(bool newvalue)
+    {
+        CensorStream.SetActive(newvalue);
+    }
 }
